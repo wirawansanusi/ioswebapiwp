@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProductViewController: UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
     
     func initTableView() {
         
@@ -50,18 +50,29 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource {
         cell.weightLabel.text = self.product.weight!
         cell.warrantyLabel.text = self.product.warranty!
         var additional = ""
-        if self.product.additional?.count > 0 {
-            for index in 0..<self.product.additional!.count {
+        if self.product.additional.count > 0 {
+            for index in 0..<self.product.additional.count {
                 if index == 0 {
-                    additional += String(format: "\(self.product.additional![index])")
+                    additional += String(format: "\(self.product.additional[index])")
                 } else {
-                    additional += String(format: "\n\(self.product.additional![index])")
+                    additional += String(format: "\n\(self.product.additional[index])")
                 }
             }
         }
         cell.additionalLabel.text = additional
         cell.priceLabel.text = product.price
         
+        // Used for Core Data querying
+        cell.id = self.product.id
+        cell.thumbnailURL = self.product.thumbnailURL
+        cell.coreDataDelegate = self
+        cell.checkFavorite()
+        
         return cell
+    }
+    
+    func ProductCellHasFinishedPerformingCoreData(controller: ProductCell) {
+        
+        self.tableView.reloadData()
     }
 }

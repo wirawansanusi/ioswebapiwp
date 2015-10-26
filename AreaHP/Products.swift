@@ -20,7 +20,7 @@ class Products {
     // Product Detail Information
     var weight: String?
     var warranty: String?
-    var additional: [String]?
+    var additional = [String]()
     
     init(id: Int, title: String, category: String, price: String, thumbnailURL: NSURL) {
         self.id = id

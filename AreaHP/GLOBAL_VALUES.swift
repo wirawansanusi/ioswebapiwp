@@ -28,6 +28,14 @@ struct GLOBAL_VALUES {
                 return NSURL(string: "http://www.areahp.com/api/get_category_posts/?id=\(categoryId)/")!
             }
         }
+        
+        struct PRODUCT {
+            
+            static func URL(postId: Int) -> NSURL {
+                
+                return NSURL(string: "http://areahp.com/api/get_post/?id=\(postId)")!
+            }
+        }
     }
     
     // List of all colors
@@ -35,6 +43,8 @@ struct GLOBAL_VALUES {
         
         static let PRIMARY = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
         static let DEFAULT = UIColor.groupTableViewBackgroundColor()
+        static let WARNING = UIColor.redColor()
+        static let WHITE = UIColor.whiteColor()
     }
     
     // List of all available Contacts

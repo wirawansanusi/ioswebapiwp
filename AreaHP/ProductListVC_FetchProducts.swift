@@ -13,7 +13,9 @@ extension ProductListViewController {
     func fetchProducts() {
         
         let urlRequest = NSURLRequest(URL: GLOBAL_VALUES.FETCH.PRODUCTS.URL(self.categoryId))
-        let session = NSURLSession.sharedSession()
+        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        sessionConfig.timeoutIntervalForRequest = 10.0
+        let session = NSURLSession(configuration: sessionConfig)
         session.dataTaskWithRequest(urlRequest) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
             if error == nil {
@@ -36,8 +38,8 @@ extension ProductListViewController {
                         for productData in productsData {
                             let id = productData["id"] as! Int
                             let title = productData["title"] as! String
-                            let thumbnailURLString = productData["thumbnail"] as! String
-                            let thumbnailURL = NSURL(string: thumbnailURLString)!
+                            let thumbnailURL_string = productData["thumbnail"] as! String
+                            let thumbnailURL = NSURL(string: thumbnailURL_string)!
                             var price: String?
                             if let tagsData = productData["tags"] as? [[String: AnyObject]] {
                                 let tagData = tagsData.first!
@@ -52,9 +54,16 @@ extension ProductListViewController {
                         self.products = products
                         self.filteredProducts = products
                         self.collectionViewShouldAnimate = true
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.reloadView.hideReloadView()
+                        })
                         self.refreshCollectionView()
                     }
                 }
+            } else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.reloadView.showReloadView((error?.userInfo[NSLocalizedDescriptionKey])! as! String)
+                })
             }
         }.resume()
     }

@@ -13,7 +13,9 @@ extension CategoryViewController {
     func fetchCategories() {
         
         let urlRequest = NSURLRequest(URL: GLOBAL_VALUES.FETCH.CATEGORIES.URL())
-        let session = NSURLSession.sharedSession()
+        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        sessionConfig.timeoutIntervalForRequest = 10.0
+        let session = NSURLSession(configuration: sessionConfig)
         session.dataTaskWithRequest(urlRequest) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
             if error == nil {
@@ -45,9 +47,17 @@ extension CategoryViewController {
                         self.filteredCategories = categories
                         self.currentCategories = currentCategories
                         self.tableViewShouldAnimate = true
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.reloadView.hideReloadView()
+                            self.initSearchController()
+                        })
                         self.refreshTableView()
                     }
                 }
+            } else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.reloadView.showReloadView((error?.userInfo[NSLocalizedDescriptionKey])! as! String)
+                })
             }
         }.resume()
     }
@@ -60,6 +70,7 @@ extension CategoryViewController {
                 subCategories.append(category)
             }
         }
+        self.initSearchController()
         self.filteredCategories = self.categories!
         self.currentCategories = subCategories
         self.tableView.reloadData()

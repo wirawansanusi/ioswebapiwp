@@ -1,16 +1,16 @@
 //
-//  ProductListVC_Main.swift
+//  FavoriteVC_Main.swift
 //  AreaHP
 //
-//  Created by wirawan sanusi on 10/20/15.
+//  Created by wirawan sanusi on 10/25/15.
 //  Copyright © 2015 Protogres. All rights reserved.
 //
 
 import UIKit
 
-class ProductListViewController: UIViewController {
+class FavoriteViewController: UIViewController {
     
-    @IBOutlet weak var reloadView: ReloadView!
+    @IBOutlet weak var reloadView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var products = [Products]()
@@ -23,33 +23,36 @@ class ProductListViewController: UIViewController {
     // Used to perform an animation once after the data has been loaded
     var collectionViewShouldAnimate = false
     
+    // Used to requery the data inside CDFavorite Core Data
+    var viewControllerDidLoad = false
+    
     // Used to add the search bar into the table view header
     var searchController: UISearchController?
     
     // Once token
     var token: dispatch_once_t = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.initReloadView()
-        self.fetchProducts()
+        
+        self.initNavigationBar()
+        self.retrieveProducts()
         self.initCollectionView()
-        self.styleSearchBar()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         if self.collectionViewShouldAnimate {
             self.animateCollectionView()
             self.collectionViewShouldAnimate = false
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
-        // Dismiss SearchController if it's in active state
-        self.dismissSearchController()
+        if self.viewControllerDidLoad {
+            self.retrieveProducts()
+        }
     }
 }

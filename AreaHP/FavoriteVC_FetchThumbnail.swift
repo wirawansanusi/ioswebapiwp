@@ -1,14 +1,14 @@
 //
-//  ProductListVC_FetchThumbnail.swift
+//  FavoriteVC_FetchThumbnail.swift
 //  AreaHP
 //
-//  Created by wirawan sanusi on 10/20/15.
+//  Created by wirawan sanusi on 10/25/15.
 //  Copyright © 2015 Protogres. All rights reserved.
 //
 
 import UIKit
 
-extension ProductListViewController {
+extension FavoriteViewController {
     
     func fetchThumbnail(product: Products) {
         
