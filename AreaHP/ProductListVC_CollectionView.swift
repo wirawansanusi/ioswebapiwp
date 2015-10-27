@@ -58,9 +58,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
             cell.thumbnailImage.image = image
         }
         cell.titleLabel.text = product!.title
-        cell.titleLabel.sizeToFit()
         cell.priceLabel.text = product!.price
-        cell.priceLabel.sizeToFit()
         
         return cell
     }

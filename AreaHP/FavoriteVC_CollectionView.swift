@@ -54,9 +54,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
             cell.thumbnailImage.image = image
         }
         cell.titleLabel.text = product.title
-        cell.titleLabel.sizeToFit()
         cell.priceLabel.text = product.price
-        cell.priceLabel.sizeToFit()
         
         return cell
     }

@@ -38,6 +38,7 @@ class FavoriteViewController: UIViewController {
         self.initNavigationBar()
         self.retrieveProducts()
         self.initCollectionView()
+        self.viewControllerDidLoad = true
     }
     
     override func viewDidLayoutSubviews() {

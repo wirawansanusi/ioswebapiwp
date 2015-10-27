@@ -64,7 +64,7 @@ class ProductCell: UITableViewCell {
             
             }) { (contextDidSave: Bool, error: NSError!) -> Void in
                 
-                print("Context did save: \(contextDidSave)")
+                //print("Context did save : \(contextDidSave)")
                 self.coreDataDelegate?.ProductCellHasFinishedPerformingCoreData(self)
         }
     }
@@ -79,13 +79,14 @@ class ProductCell: UITableViewCell {
             product.category = self.categoryLabel.text
             product.price = self.priceLabel.text
             product.thumbnailURL = self.thumbnailURL!.absoluteString
+            product.thumbnailImage = UIImagePNGRepresentation(self.thumbnailImageView.image!)
             product.weight = self.weightLabel.text
             product.warranty = self.warrantyLabel.text
             product.additional = self.additionalLabel.text
             
             }) { (contextDidSave: Bool, error: NSError!) -> Void in
                 
-                print("Context did save : \(contextDidSave)")
+                //print("Context did save : \(contextDidSave)")
                 self.coreDataDelegate?.ProductCellHasFinishedPerformingCoreData(self)
         }
     }
