@@ -8,10 +8,14 @@
 
 import UIKit
 
-extension FavoriteViewController {
+extension FavoriteViewController: JSONRequestDelegate {
     
     func fetchProduct(productCoreData: Products, index: Int) {
         
+        let request = JSONRequest(delegate: self, URL: GLOBAL_VALUES.FETCH.PRODUCT.URL(productCoreData.id))
+        request.run()
+        
+        /*
         let urlRequest = NSURLRequest(URL: GLOBAL_VALUES.FETCH.PRODUCT.URL(productCoreData.id))
         let session = NSURLSession.sharedSession()
         session.dataTaskWithRequest(urlRequest) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
@@ -46,6 +50,7 @@ extension FavoriteViewController {
                 }
             }
         }.resume()
+        */
     }
     
     func fetchProductDetail(productCoreData: Products, productData: [String: AnyObject]) {
@@ -77,5 +82,33 @@ extension FavoriteViewController {
         productCoreData.weight = weight
         productCoreData.warranty = warranty
         productCoreData.additional = additional
+    }
+    
+    func JSONRequestDataTaskOnSuccess(request: JSONRequest, JSONObject: AnyObject) {
+        /*
+        if let metadata = JSONObject as? [String: AnyObject] {
+            if let productData = metadata["posts"] as? [String: AnyObject] {
+                productCoreData.title = productData["title"] as! String
+                let thumbnailURLString = productData["thumbnail"] as! String
+                productCoreData.thumbnailURL = NSURL(string: thumbnailURLString)!
+                if let tagsData = productData["tags"] as? [[String: AnyObject]] {
+                    let tagData = tagsData.first!
+                    productCoreData.price = tagData["title"] as! String
+                }
+                
+                self.fetchProductDetail(productCoreData, productData: productData)
+                
+                // Reassign new product data value
+                self.products[index] = productCoreData
+                self.filteredProducts = self.products
+                self.collectionViewShouldAnimate = true
+                self.refreshCollectionView()
+            }
+        }
+        */
+    }
+    
+    func JSONRequestDataTaskOnFailed(request: JSONRequest, errorMessage: String) {
+        // Do nothing here..
     }
 }

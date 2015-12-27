@@ -14,12 +14,14 @@ class Categories {
     var title: String
     var slug: String
     var parentId: Int
+    var totalProduct: Int
     
-    init(id: Int, title: String, slug: String, parentId: Int) {
+    init(id: Int, title: String, slug: String, parentId: Int, totalProduct: Int) {
         
         self.id = id
         self.title = title
         self.slug = slug
         self.parentId = parentId
+        self.totalProduct = totalProduct
     }
 }

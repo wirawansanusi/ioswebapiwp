@@ -32,28 +32,30 @@ class FavoriteViewController: UIViewController {
     // Once token
     var token: dispatch_once_t = 0
     
+    var request: JSONRequest?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initNavigationBar()
-        self.retrieveProducts()
-        self.initCollectionView()
-        self.viewControllerDidLoad = true
+        initJSONRequest()
+        retrieveProducts()
+        initCollectionView()
+        viewControllerDidLoad = true
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if self.collectionViewShouldAnimate {
-            self.animateCollectionView()
-            self.collectionViewShouldAnimate = false
+        if collectionViewShouldAnimate {
+            animateCollectionView()
+            collectionViewShouldAnimate = false
         }
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        if self.viewControllerDidLoad {
-            self.retrieveProducts()
+        if viewControllerDidLoad {
+            retrieveProducts()
         }
     }
 }

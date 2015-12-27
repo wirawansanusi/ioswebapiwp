@@ -11,9 +11,8 @@ import MapKit
 
 class ContactViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var introTextView: UITextView!
     
     var annotation: Annotation?
     var contacts = [(UIImage, String, NSURL)]()
@@ -21,14 +20,12 @@ class ContactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initNavigationBar()
-        self.initMapLocation()
-        self.initTableView()
+        addAnnotationForDirection()
+        styleIntroTextView()
+        initTableView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        self.adjustScrollViewContentSize()
     }
 }

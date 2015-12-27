@@ -1,17 +1,22 @@
 //
-//  ProductVC_NavigationBar.swift
+//  LogoNavigationItem.swift
 //  AreaHP
 //
-//  Created by wirawan sanusi on 10/21/15.
+//  Created by wirawan sanusi on 12/14/15.
 //  Copyright © 2015 Protogres. All rights reserved.
 //
 
 import UIKit
 
-extension ProductViewController {
-    
-    func initNavigationBar() {
+class LogoNavigationItem: UINavigationItem {
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         
+        setTitleLogo()
+    }
+    
+    func setTitleLogo() {
         let container = CGRect(origin: CGPointZero, size: CGSize(width: 200.0, height: 33.0))
         let imageLogo = UIImage(named: "Logo")
         let titleView = UIImageView(image: imageLogo)
@@ -19,6 +24,6 @@ extension ProductViewController {
         titleView.contentMode = .Center
         titleView.frame = container
         
-        self.navigationItem.titleView = titleView
+        self.titleView = titleView
     }
 }

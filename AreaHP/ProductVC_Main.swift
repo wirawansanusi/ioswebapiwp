@@ -17,7 +17,6 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initNavigationBar()
         self.initTableView()
     }
 }

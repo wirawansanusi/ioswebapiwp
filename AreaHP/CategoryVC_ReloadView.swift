@@ -22,11 +22,13 @@ extension CategoryViewController: ReloadViewDelegate {
     
     func reloadViewShouldPresentView(controller: ReloadView) {
         
+        self.searchContainer.alpha = 0
         self.tableView.alpha = 0
     }
     
     func reloadViewShouldHideView(controller: ReloadView) {
         
+        self.searchContainer.alpha = 1.0
         self.tableView.alpha = 1.0
     }
 }

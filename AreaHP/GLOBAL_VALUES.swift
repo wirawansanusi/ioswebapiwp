@@ -50,6 +50,11 @@ struct GLOBAL_VALUES {
     // List of all available Contacts
     struct CONTACT {
         
+        struct INTRO {
+            
+            static let TEXT = "Selamat datang di areahp.com ! Kami menjual berbagai aksesoris dan perlengkapan untuk Gadget (Notebook ,Tablet dan Smartphone) dengan jangkauan pengiriman ke seluruh pelosok Indonesia dengan menggunakan jasa pengiriman kilat. Berbekalkan pengalaman di bidang gadget selama bertahun-tahun, kami menghadirkan kepada Anda produk-produk inovatif dengan harga yang terjangkau."
+        }
+        
         struct DIRECTION {
             
             static let URL = NSURL(string: "whatsapp://send?abid=+6285780070729")!

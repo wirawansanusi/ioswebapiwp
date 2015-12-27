@@ -16,4 +16,13 @@ extension ContactViewController {
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
+    
+    func styleIntroTextView() {
+        
+        let style = NSMutableParagraphStyle()
+        style.lineHeightMultiple = 1.5
+        let attributes = [NSParagraphStyleAttributeName : style]
+        introTextView.attributedText = NSAttributedString(string: GLOBAL_VALUES.CONTACT.INTRO.TEXT, attributes:attributes)
+        introTextView.font = UIFont.systemFontOfSize(14.0)
+    }
 }

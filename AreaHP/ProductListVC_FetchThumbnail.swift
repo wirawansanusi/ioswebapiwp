@@ -8,24 +8,28 @@
 
 import UIKit
 
-extension ProductListViewController {
+extension ProductListViewController{
     
     func fetchThumbnail(product: Products) {
         
         let urlRequest = NSURLRequest(URL: product.thumbnailURL)
-        let session = NSURLSession.sharedSession()
-        session.downloadTaskWithRequest(urlRequest) { (urlRequest: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
-            
-            if error == nil {
-                
-                if let url = urlRequest {
-                    let imageData = NSData(contentsOfURL: url)
-                    let image = UIImage(data: imageData!)
-                    
-                    product.thumbnailImage = image
-                    self.refreshCollectionView()
-                }
+        request?.manager.downloadTaskWithRequest(urlRequest, progress: nil, destination: { (url: NSURL, response: NSURLResponse) -> NSURL in
+            var documentDirectory: NSURL?
+            do {
+                documentDirectory = try NSFileManager.defaultManager().URLForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: nil, create: false)
+            } catch _ {
+                //
             }
-        }.resume()
+            return documentDirectory!.URLByAppendingPathComponent(response.suggestedFilename!)
+            
+            }, completionHandler: { (response: NSURLResponse, filePath: NSURL?, error: NSError?) -> Void in
+            if error == nil {
+                let imageData = NSData(contentsOfURL: filePath!)
+                let image = UIImage(data: imageData!)
+                
+                product.thumbnailImage = image
+                self.refreshCollectionView()
+            }
+        }).resume()
     }
 }

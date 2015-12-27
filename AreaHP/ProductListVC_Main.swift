@@ -28,28 +28,31 @@ class ProductListViewController: UIViewController {
     
     // Once token
     var token: dispatch_once_t = 0
+    
+    var request: JSONRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.initReloadView()
-        self.fetchProducts()
-        self.initCollectionView()
-        self.styleSearchBar()
+        initJSONRequest()
+        initReloadView()
+        fetchProducts()
+        initCollectionView()
+        styleSearchBar()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        if self.collectionViewShouldAnimate {
-            self.animateCollectionView()
-            self.collectionViewShouldAnimate = false
+        if collectionViewShouldAnimate {
+            animateCollectionView()
+            collectionViewShouldAnimate = false
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
         
         // Dismiss SearchController if it's in active state
-        self.dismissSearchController()
+        dismissSearchController()
     }
 }

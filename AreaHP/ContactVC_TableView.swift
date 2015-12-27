@@ -58,7 +58,6 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.contactIcon.image = image
         cell.contactLabel.text = title
-        cell.accessoryType = .DetailDisclosureButton
         
         return cell
     }

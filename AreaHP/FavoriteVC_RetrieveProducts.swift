@@ -37,10 +37,6 @@ extension FavoriteViewController {
             }
             
             self.products = products
-            for index in 0..<self.products.count {
-                self.fetchProduct(self.products[index], index: index)
-            }
-    
             self.refreshCollectionView()
             self.collectionView.reloadData()
             self.hideReloadView()

@@ -81,7 +81,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
     
     /*
     UICOLLECTION VIEW FLOW LAYOUT
-    */
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let screenWidth = UIScreen.mainScreen().bounds.width - 30.0
@@ -89,4 +89,5 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
         
         return CGSize(width: screenWidth / 2.0, height: 200)
     }
+    */
 }

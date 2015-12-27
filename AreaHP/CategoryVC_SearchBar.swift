@@ -8,45 +8,33 @@
 
 import UIKit
 
-extension CategoryViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension CategoryViewController: UISearchBarDelegate {
     
-    func initSearchController() {
-        
-        self.searchController = UISearchController(searchResultsController: nil)
-        
-        self.searchController?.searchResultsUpdater = self
-        self.searchController?.hidesNavigationBarDuringPresentation = false
-        self.searchController?.dimsBackgroundDuringPresentation = false
-        self.searchController?.searchBar.placeholder = "Cari Kategori"
-        self.searchController?.searchBar.sizeToFit()
-        self.searchController?.searchBar.delegate = self
-        self.styleSearchBar()
-        
-        self.tableView.tableHeaderView = searchController?.searchBar
+    func initSearchBar() {
+        searchBar.delegate = self
     }
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-        let filteredCategories = self.categories!.filter { (category: Categories) -> Bool in
-            
-            let keyword = searchController.searchBar.text!
-            let keywordCount = keyword.characters.count
-            let matchedString = category.title.rangeOfString(searchController.searchBar.text!, options: .CaseInsensitiveSearch)
-            
-            return (matchedString != nil || keywordCount == 0)
-        }
-        self.filteredCategories = filteredCategories
-        
-        tableView.reloadData()
-    }
-    
-    func dismissSearchController() {
-        
-        searchController?.active = false
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        currentCategories = categoryList!.filterCategories(searchText)
+        reloadTableView(currentCategories)
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+    }
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
+        currentCategories = categoryList!.getMainCategories()
+        reloadTableView(currentCategories)
+    }
+    
+    func dismissSearchBar() {
         searchBar.resignFirstResponder()
     }
 }
