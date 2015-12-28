@@ -14,6 +14,8 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.styleTableView()
     }
     
@@ -39,10 +41,11 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
     
     func configureCellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("categoryCell", forIndexPath: indexPath) as! CategoryCell
         
         let category = currentCategories[indexPath.row]
-        cell.textLabel?.text = category.title
+        cell.title.text = category.title
+        cell.totalProducts.text = "\(category.totalProduct)"
         cellHeight = cell.bounds.height
         
         return cell
@@ -61,7 +64,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
             parentId = id
             
         } else {
-            selectCategory(id)
+            didSelectCategory(id)
             closeSideDrawer()
         }
     }
@@ -95,9 +98,5 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
             return cellHeight
         }
         return 0
-    }
-    
-    func selectCategory(id: Int) {
-        print("Category ID : \(id) has been selected!")
     }
 }

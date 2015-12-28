@@ -13,6 +13,14 @@ struct GLOBAL_VALUES {
     // List of all available API URL
     struct FETCH {
         
+        struct FEATURED {
+            
+            static func URL() -> NSURL {
+                
+                return NSURL(string: "http://areahp.com/api/custom/show_featured/")!
+            }
+        }
+        
         struct CATEGORIES {
             
             static func URL() -> NSURL {

@@ -10,6 +10,7 @@ import UIKit
 
 class CategoryViewController: UIViewController {
 
+    @IBOutlet weak var sidenavLogo: UIImageView!
     @IBOutlet weak var reloadView: ReloadView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchContainer: UIView!
@@ -41,6 +42,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initRecognizer()
         initJSONRequest()
         initReloadView()
         initTableView()

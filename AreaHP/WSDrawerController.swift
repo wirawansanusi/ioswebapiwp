@@ -14,14 +14,14 @@ class WSDrawerController: MMDrawerController {
     var shadowLayer: CALayer?
     
     override func openDrawerSide(drawerSide: MMDrawerSide, animated: Bool, velocity: CGFloat, animationOptions options: UIViewAnimationOptions, completion: ((Bool) -> Void)!) {
-        
         super.openDrawerSide(drawerSide, animated: animated, velocity: velocity, animationOptions: options, completion: completion)
+        
         addShadowIntoCenterView()
     }
     
     override func closeDrawerAnimated(animated: Bool, velocity: CGFloat, animationOptions options: UIViewAnimationOptions, completion: ((Bool) -> Void)!) {
-        
         super.closeDrawerAnimated(animated, velocity: velocity, animationOptions: options, completion: completion)
+        
         removeShadowFromCenterView()
     }
     

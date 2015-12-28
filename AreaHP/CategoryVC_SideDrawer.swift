@@ -15,4 +15,14 @@ extension CategoryViewController {
         dismissSearchBar()
         mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
     }
+    
+    func didSelectCategory(id: Int) {
+        let userInfo = ["id": id]
+        NSNotificationCenter.defaultCenter().postNotificationName("NavigateCategoryIdEvent", object: self, userInfo: userInfo)
+    }
+    
+    func didPressSidenavLogo(recognizer: UITapGestureRecognizer) {
+        NSNotificationCenter.defaultCenter().postNotificationName("NavigateFeaturedEvent", object: self)
+        closeSideDrawer()
+    }
 }

@@ -33,7 +33,7 @@ class DrawerViewController: UIViewController {
             
             destination.showsShadow = false
             destination.openDrawerGestureModeMask = [MMOpenDrawerGestureMode.PanningCenterView]
-            destination.closeDrawerGestureModeMask = [MMCloseDrawerGestureMode.TapCenterView, MMCloseDrawerGestureMode.PanningCenterView]
+            destination.closeDrawerGestureModeMask = [MMCloseDrawerGestureMode.TapCenterView]
         }
     }
 

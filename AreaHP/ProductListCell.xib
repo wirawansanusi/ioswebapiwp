@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productListCell" id="gTV-IL-0wX" customClass="ProductListCell" customModule="AreaHP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="194"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="194"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-Zm-Aug">
+                        <rect key="frame" x="18" y="8" width="135" height="135"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="150" id="9y7-ly-rNX"/>
+                            <constraint firstAttribute="width" secondItem="s8E-Zm-Aug" secondAttribute="height" multiplier="1:1" id="G8w-7Y-ORH"/>
+                            <constraint firstAttribute="height" constant="150" id="PyL-9f-Gee"/>
+                            <constraint firstAttribute="width" secondItem="s8E-Zm-Aug" secondAttribute="height" multiplier="1:1" id="QSA-2I-AMe"/>
+                            <constraint firstAttribute="width" secondItem="s8E-Zm-Aug" secondAttribute="height" multiplier="77:60" id="Y7h-64-cyp"/>
+                            <constraint firstAttribute="height" constant="120" id="cf6-fc-X7U"/>
+                            <constraint firstAttribute="width" constant="150" id="cyg-NV-jGb"/>
+                            <constraint firstAttribute="height" constant="150" id="i6O-re-s82"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9y7-ly-rNX"/>
+                                <exclude reference="G8w-7Y-ORH"/>
+                                <exclude reference="PyL-9f-Gee"/>
+                                <exclude reference="Y7h-64-cyp"/>
+                                <exclude reference="cf6-fc-X7U"/>
+                                <exclude reference="cyg-NV-jGb"/>
+                                <exclude reference="i6O-re-s82"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="9y7-ly-rNX"/>
+                                <include reference="G8w-7Y-ORH"/>
+                                <exclude reference="PyL-9f-Gee"/>
+                                <exclude reference="cyg-NV-jGb"/>
+                                <exclude reference="i6O-re-s82"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjg-4C-xZP">
+                        <rect key="frame" x="8" y="151" width="154" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="fuu-MQ-NiW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fuu-MQ-NiW"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="fuu-MQ-NiW"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiQ-nG-M8T">
+                        <rect key="frame" x="8" y="174" width="154" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="1xC-Ux-1UG"/>
+                            <constraint firstAttribute="height" constant="12" id="85c-eq-933"/>
+                            <constraint firstAttribute="width" constant="150" id="FEN-3l-kXG"/>
+                            <constraint firstAttribute="height" constant="12" id="Vgw-O3-IZk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1xC-Ux-1UG"/>
+                                <exclude reference="85c-eq-933"/>
+                                <exclude reference="FEN-3l-kXG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="85c-eq-933"/>
+                                <exclude reference="FEN-3l-kXG"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Vjg-4C-xZP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="2c8-fT-5qK"/>
+                <constraint firstAttribute="trailing" secondItem="s8E-Zm-Aug" secondAttribute="trailing" constant="8" id="74a-l9-0Ir"/>
+                <constraint firstAttribute="trailing" secondItem="RiQ-nG-M8T" secondAttribute="trailing" constant="8" id="7Pb-7b-id2"/>
+                <constraint firstItem="s8E-Zm-Aug" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="9Ih-wq-6rp"/>
+                <constraint firstAttribute="trailing" secondItem="Vjg-4C-xZP" secondAttribute="trailing" constant="8" id="CQ4-gb-QCE"/>
+                <constraint firstItem="s8E-Zm-Aug" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="h1y-gz-AlU"/>
+                <constraint firstItem="RiQ-nG-M8T" firstAttribute="top" secondItem="Vjg-4C-xZP" secondAttribute="bottom" constant="3" id="kLG-F9-EMa"/>
+                <constraint firstItem="s8E-Zm-Aug" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="n1A-CK-p8x"/>
+                <constraint firstAttribute="bottom" secondItem="RiQ-nG-M8T" secondAttribute="bottom" constant="8" id="oKM-YP-BqW"/>
+                <constraint firstItem="RiQ-nG-M8T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="vtf-tr-1SK"/>
+                <constraint firstItem="Vjg-4C-xZP" firstAttribute="top" secondItem="s8E-Zm-Aug" secondAttribute="bottom" constant="8" id="zfE-7f-cif"/>
+            </constraints>
+            <size key="customSize" width="195" height="193"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="74a-l9-0Ir"/>
+                    <exclude reference="n1A-CK-p8x"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="priceLabel" destination="RiQ-nG-M8T" id="hlw-8r-z5f"/>
+                <outlet property="thumbnailImage" destination="s8E-Zm-Aug" id="UZ3-hY-qib"/>
+                <outlet property="titleLabel" destination="Vjg-4C-xZP" id="bbD-2Y-cTq"/>
+            </connections>
+            <point key="canvasLocation" x="395" y="426.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder" width="100" height="100"/>
+    </resources>
+</document>
