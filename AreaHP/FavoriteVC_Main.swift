@@ -32,12 +32,9 @@ class FavoriteViewController: UIViewController {
     // Once token
     var token: dispatch_once_t = 0
     
-    var request: JSONRequest?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initJSONRequest()
         retrieveProducts()
         initCollectionView()
         viewControllerDidLoad = true

@@ -71,7 +71,7 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource, Pro
         return cell
     }
     
-    func ProductCellHasFinishedPerformingCoreData(controller: ProductCell) {
+    func productCellHasFinishedPerformingCoreData(controller: ProductCell) {
         
         self.tableView.reloadData()
     }

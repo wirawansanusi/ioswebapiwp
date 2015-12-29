@@ -11,7 +11,7 @@ import MagicalRecord
 
 protocol ProductCellDelegate {
     
-    func ProductCellHasFinishedPerformingCoreData(controller: ProductCell)
+    func productCellHasFinishedPerformingCoreData(controller: ProductCell)
 }
 
 class ProductCell: UITableViewCell {
@@ -65,7 +65,7 @@ class ProductCell: UITableViewCell {
             }) { (contextDidSave: Bool, error: NSError!) -> Void in
                 
                 //print("Context did save : \(contextDidSave)")
-                self.coreDataDelegate?.ProductCellHasFinishedPerformingCoreData(self)
+                self.coreDataDelegate?.productCellHasFinishedPerformingCoreData(self)
         }
     }
     
@@ -87,7 +87,7 @@ class ProductCell: UITableViewCell {
             }) { (contextDidSave: Bool, error: NSError!) -> Void in
                 
                 //print("Context did save : \(contextDidSave)")
-                self.coreDataDelegate?.ProductCellHasFinishedPerformingCoreData(self)
+                self.coreDataDelegate?.productCellHasFinishedPerformingCoreData(self)
         }
     }
 }

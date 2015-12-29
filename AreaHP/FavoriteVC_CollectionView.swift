@@ -20,6 +20,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
     
     func initCollectionView() {
         
+        self.collectionView!.registerNib(UINib(nibName: "ProductListCell", bundle: nil), forCellWithReuseIdentifier: "productListCell")
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
@@ -36,7 +37,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.products.count
+        return products.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -47,25 +48,18 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
     func configureCellForRowAtIndexPath(indexPath: NSIndexPath) -> ProductListCell {
         
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("productListCell", forIndexPath: indexPath) as! ProductListCell
-        
-        let product = self.products[indexPath.row]
+        let product = products[indexPath.row]
         
         if let image = product.thumbnailImage {
             cell.thumbnailImage.image = image
+        } else {
+            print("missing")
         }
         cell.titleLabel.text = product.title
+        cell.titleLabel.sizeToFit()
         cell.priceLabel.text = product.price
         
         return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let product = self.products[indexPath.row]
-        
-        if product.thumbnailImage == nil {
-            self.fetchThumbnail(product)
-        }
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -73,21 +67,23 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDele
         // Animation for deselect the selected item
         self.collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         
-        let product = self.products[indexPath.row]
-        
-        self.selectedProduct = product
+        selectedProduct = self.products[indexPath.row]
         self.performSegueWithIdentifier("showProductViewController", sender: self)
     }
     
     /*
     UICOLLECTION VIEW FLOW LAYOUT
-    
+    */
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let screenWidth = UIScreen.mainScreen().bounds.width - 30.0
         // For section insets, please refer to the storyboard
         
-        return CGSize(width: screenWidth / 2.0, height: 200)
+        return CGSize(width: screenWidth / 2.0, height: 220)
     }
-    */
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 10.0, left: 2.5, bottom: 10.0, right: 2.5)
+    }
 }

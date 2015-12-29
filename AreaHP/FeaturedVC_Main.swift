@@ -16,6 +16,7 @@ class FeaturedViewController: UIViewController {
     var categoryId: Int?
     var request: JSONRequest?
     var products = [Products]()
+    var selectedProduct: Products?
     // Used to perform an animation once after the data has been loaded
     var collectionViewShouldAnimate = false
     var collectionTypeIsFeatured = true

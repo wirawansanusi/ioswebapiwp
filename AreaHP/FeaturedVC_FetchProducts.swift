@@ -30,6 +30,7 @@ extension FeaturedViewController: JSONRequestDataTaskDelegate {
             self.reloadView.hideReloadView()
         })
         self.refreshCollectionView()
+        self.collectionView.setContentOffset(CGPointZero, animated:true)
     }
     
     func JSONRequestDataTaskOnFailed(request: JSONRequest, errorMessage: String) {

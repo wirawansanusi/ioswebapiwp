@@ -5,3 +5,5 @@
 #import <MMDrawerController/MMDrawerController.h>
 #import <MMDrawerController/UIViewController+MMDrawerController.h>
 #import <MMDrawerController/MMDrawerBarButtonItem.h>
+
+#import <SDWebImage/UIImageView+WebCache.h>

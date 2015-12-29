@@ -65,7 +65,6 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
             
         } else {
             didSelectCategory(id)
-            closeSideDrawer()
         }
     }
     

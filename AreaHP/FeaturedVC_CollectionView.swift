@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SDWebImage
+import SVProgressHUD
 
 extension FeaturedViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -49,11 +51,7 @@ extension FeaturedViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("productListCell", forIndexPath: indexPath) as! ProductListCell
         let product = products[indexPath.row]
         
-        if let image = product.thumbnailImage {
-            cell.thumbnailImage.image = image
-        } else {
-            cell.thumbnailImage.image = nil
-        }
+        configureThumbnailForRowAtIndexPath(cell.thumbnailImage, product: product)
         cell.titleLabel.text = product.title
         cell.titleLabel.sizeToFit()
         cell.priceLabel.text = product.price
@@ -65,34 +63,32 @@ extension FeaturedViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("featuredCell", forIndexPath: indexPath) as! FeaturedCell
         let product = products[indexPath.row]
         
-        if let image = product.thumbnailImage {
-            cell.thumbnail.image = image
-        } else {
-            cell.thumbnail.image = nil
-        }
+        configureThumbnailForRowAtIndexPath(cell.thumbnail, product: product)
         cell.title.text = product.title
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func configureThumbnailForRowAtIndexPath(image: UIImageView, product: Products) {
         
-        let product = self.products[indexPath.row]
-        if product.thumbnailImage == nil {
-            self.fetchThumbnail(product)
+        image.sd_setImageWithURL(product.thumbnailURL, placeholderImage: UIImage(named: "placeholder")) { (image: UIImage!, error: NSError!, cacheType: SDImageCacheType, imageURL: NSURL!) -> Void in
+            if let thumbnail = image {
+                product.thumbnailImage = thumbnail
+            }
         }
     }
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         // Animation for deselect the selected item
         self.collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         
+        selectedProduct = products[indexPath.row]
         if collectionTypeIsFeatured {
-            let product = products[indexPath.row]
-            let id = product.id
-            let userInfo = ["id": id]
-            NSNotificationCenter.defaultCenter().postNotificationName("NavigateCategoryIdEvent", object: self, userInfo: userInfo)
+            willSendNotificationFromCenter()
+        } else {
+            performSegueWithIdentifier("showProductViewController", sender: self)
         }
     }
     

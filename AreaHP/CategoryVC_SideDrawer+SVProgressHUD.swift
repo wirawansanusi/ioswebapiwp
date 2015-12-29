@@ -1,13 +1,14 @@
 //
-//  CategoryVC_SideDrawer.swift
+//  CategoryVC_SideDrawer+SVProgressHUD.swift
 //  AreaHP
 //
-//  Created by wirawan sanusi on 12/27/15.
+//  Created by wirawan sanusi on 12/29/15.
 //  Copyright © 2015 Protogres. All rights reserved.
 //
 
 import UIKit
 import MMDrawerController
+import SVProgressHUD
 
 extension CategoryViewController {
     
@@ -18,11 +19,14 @@ extension CategoryViewController {
     
     func didSelectCategory(id: Int) {
         let userInfo = ["id": id]
+        closeSideDrawer()
+        SVProgressHUD.show()
         NSNotificationCenter.defaultCenter().postNotificationName("NavigateCategoryIdEvent", object: self, userInfo: userInfo)
     }
     
     func didPressSidenavLogo(recognizer: UITapGestureRecognizer) {
-        NSNotificationCenter.defaultCenter().postNotificationName("NavigateFeaturedEvent", object: self)
         closeSideDrawer()
+        SVProgressHUD.show()
+        NSNotificationCenter.defaultCenter().postNotificationName("NavigateFeaturedEvent", object: self)
     }
 }

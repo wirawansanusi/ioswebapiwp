@@ -19,4 +19,10 @@ class ProductViewController: UIViewController {
         
         self.initTableView()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
 }

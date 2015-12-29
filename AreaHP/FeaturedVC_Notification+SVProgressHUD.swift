@@ -1,12 +1,13 @@
 //
-//  FeaturedVC_NotificationCenter.swift
+//  FeaturedVC_Notification+SVProgressHUD.swift
 //  AreaHP
 //
-//  Created by wirawan sanusi on 12/28/15.
+//  Created by wirawan sanusi on 12/29/15.
 //  Copyright © 2015 Protogres. All rights reserved.
 //
 
 import UIKit
+import SVProgressHUD
 
 extension FeaturedViewController {
     
@@ -15,7 +16,6 @@ extension FeaturedViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didReceivedNotificationFromSideDrawer:"), name: "NavigateCategoryIdEvent", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didReceivedNotificationFromSideDrawer:"), name: "NavigateFeaturedEvent", object: nil)
     }
-    
     
     func didReceivedNotificationFromSideDrawer(notification: NSNotification) {
         
@@ -27,5 +27,16 @@ extension FeaturedViewController {
             categoryId = nil
             initJSONRequest(GLOBAL_VALUES.FETCH.FEATURED.URL())
         }
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    func willSendNotificationFromCenter() {
+        let id = selectedProduct!.id
+        let userInfo = ["id": id]
+        SVProgressHUD.show()
+        NSNotificationCenter.defaultCenter().postNotificationName("NavigateCategoryIdEvent", object: self, userInfo: userInfo)
     }
 }

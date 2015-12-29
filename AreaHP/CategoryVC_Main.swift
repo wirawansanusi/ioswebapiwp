@@ -19,7 +19,6 @@ class CategoryViewController: UIViewController {
     var categories: [Categories]?
     var categoryList: CategoryList?
     var currentCategories = [Categories]()
-    var filteredCategories = [Categories]()
     var selectedCategory: Categories?
     var tableFooterViewController: TableFooterViewController?
     var cellHeight: CGFloat = 0
@@ -33,9 +32,6 @@ class CategoryViewController: UIViewController {
     
     // Used to perform an animation once after the data has been loaded
     var tableViewShouldAnimate = false
-    
-    // Used to add the search bar into the table view header
-    var searchController: UISearchController?
     
     var request: JSONRequest?
     
