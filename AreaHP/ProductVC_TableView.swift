@@ -14,7 +14,7 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource, Pro
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = 44.0
+        //self.tableView.estimatedRowHeight = 44.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.styleTableView()
         

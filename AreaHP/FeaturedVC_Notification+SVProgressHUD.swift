@@ -32,8 +32,12 @@ extension FeaturedViewController {
     func willSendNotificationFromCenter() {
         let id = selectedProduct!.id
         let userInfo = ["id": id]
-        SVProgressHUD.show()
+        showProgressHUD()
         NSNotificationCenter.defaultCenter().postNotificationName("NavigateCategoryIdEvent", object: self, userInfo: userInfo)
+    }
+    
+    func showProgressHUD() {
+        SVProgressHUD.show()
     }
     
     func dismissProgressHUD() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 protocol ReloadViewDelegate {
     
@@ -20,14 +21,12 @@ class ReloadView: UIView {
     var delegate: ReloadViewDelegate?
     
     @IBOutlet weak var reloadLabel: UILabel!
-    @IBOutlet weak var reloadIndicator: UIActivityIndicatorView!
     @IBOutlet weak var reloadButton: UIButton!
     
     @IBAction func reloadURLSession(sender: AnyObject) {
         
         self.reloadButton.alpha = 0
-        self.reloadIndicator.alpha = 1.0
-        self.reloadIndicator.startAnimating()
+        SVProgressHUD.show()
         self.delegate?.reloadViewdidPressURLSessionButton(self)
     }
     
@@ -35,8 +34,7 @@ class ReloadView: UIView {
         
         self.alpha = 1.0
         self.reloadButton.alpha = 1.0
-        self.reloadIndicator.alpha = 0
-        self.reloadIndicator.stopAnimating()
+        SVProgressHUD.dismiss()
         self.reloadLabel.text = message
         
         self.delegate?.reloadViewShouldPresentView(self)
@@ -45,8 +43,7 @@ class ReloadView: UIView {
     func hideReloadView() {
         
         self.alpha = 0
-        self.reloadButton.alpha = 0
-        self.reloadIndicator.alpha = 0
+        SVProgressHUD.dismiss()
         self.reloadLabel.text = ""
         
         self.delegate?.reloadViewShouldHideView(self)

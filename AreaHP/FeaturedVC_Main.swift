@@ -24,6 +24,7 @@ class FeaturedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        showProgressHUD()
         setupLeftMenuButton()
         setupCenter()
     }
