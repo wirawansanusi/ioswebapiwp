@@ -10,6 +10,10 @@ import UIKit
 
 class LogoNavigationItem: UINavigationItem {
 
+    override init(title: String) {
+        super.init(title: title)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         

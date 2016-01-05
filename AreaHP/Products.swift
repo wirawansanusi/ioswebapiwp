@@ -20,7 +20,7 @@ class Products {
     // Product Detail Information
     var weight: String?
     var warranty: String?
-    var additional = [String]()
+    var additional: String?
     
     init(id: Int, title: String, category: String, price: String, thumbnailURL: NSURL) {
         self.id = id
@@ -30,7 +30,7 @@ class Products {
         self.thumbnailURL = thumbnailURL
     }
     
-    func detail(weight: String, warranty: String, additional: [String]) {
+    func detail(weight: String, warranty: String, additional: String) {
         self.weight = weight
         self.warranty = warranty
         self.additional = additional

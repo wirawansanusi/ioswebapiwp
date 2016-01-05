@@ -21,7 +21,6 @@ class CategoryViewController: UIViewController {
     var currentCategories = [Categories]()
     var selectedCategory: Categories?
     var tableFooterViewController: TableFooterViewController?
-    var cellHeight: CGFloat = 0
     
     // Show error message when NSURLSession has error
     var errorMessage: String?

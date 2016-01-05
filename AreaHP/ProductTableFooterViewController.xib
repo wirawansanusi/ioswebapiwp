@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductTableFooterViewController" customModule="AreaHP" customModuleProvider="target">
+            <connections>
+                <outlet property="productBtn" destination="Qrd-dA-4eL" id="Xev-R0-23b"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-dA-4eL">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.0" green="0.5568627451" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="584" id="0mu-U6-5P6"/>
+                        <constraint firstAttribute="height" constant="50" id="tTs-JZ-rrn"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0mu-U6-5P6"/>
+                            <exclude reference="tTs-JZ-rrn"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="didPressProductBtn:" destination="-1" eventType="touchUpInside" id="I0j-qY-sXc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Qrd-dA-4eL" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="MFd-KC-Zau"/>
+                <constraint firstAttribute="trailing" secondItem="Qrd-dA-4eL" secondAttribute="trailing" id="aOe-3g-bxc"/>
+                <constraint firstItem="Qrd-dA-4eL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="b5S-Q0-MpS"/>
+                <constraint firstItem="Qrd-dA-4eL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kLy-8b-Jx2"/>
+                <constraint firstAttribute="bottom" secondItem="Qrd-dA-4eL" secondAttribute="bottom" id="kNK-hh-reg"/>
+                <constraint firstItem="Qrd-dA-4eL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wKK-FV-cmE"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="MFd-KC-Zau"/>
+                    <exclude reference="wKK-FV-cmE"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

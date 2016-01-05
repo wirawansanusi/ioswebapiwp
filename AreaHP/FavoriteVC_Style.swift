@@ -10,14 +10,6 @@ import UIKit
 
 extension FavoriteViewController {
     
-    func styleSearchBar() {
-        
-        self.searchController?.searchBar.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        self.searchController?.searchBar.barTintColor = UIColor.groupTableViewBackgroundColor()
-        self.searchController?.searchBar.layer.borderColor = UIColor.groupTableViewBackgroundColor().CGColor
-        self.searchController?.searchBar.layer.borderWidth = 1.0
-    }
-    
     func animateCollectionView() {
         
         let defaultTopInset = self.collectionView.contentInset.top

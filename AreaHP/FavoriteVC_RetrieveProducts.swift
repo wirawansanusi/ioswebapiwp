@@ -32,7 +32,7 @@ extension FavoriteViewController {
                 product.thumbnailImage = thumbnailImage
                 product.weight = productData.weight
                 product.warranty = productData.warranty
-                product.additional.append(productData.additional!)
+                product.additional = productData.additional
                 products.append(product)
             }
             

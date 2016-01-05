@@ -15,6 +15,8 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 100.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.loadTableViewData()
         
         self.styleTableView()

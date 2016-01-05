@@ -35,6 +35,8 @@
 		99A5F95A1BD7D9540082676F /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5F9591BD7D9540082676F /* ProductCell.swift */; };
 		99A5F9601BD7DD6A0082676F /* ProductVC_Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5F95F1BD7DD6A0082676F /* ProductVC_Style.swift */; };
 		99A5F9641BD7FBCF0082676F /* ProductVC_TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5F9631BD7FBCF0082676F /* ProductVC_TableView.swift */; };
+		99C208A81C3C22A600F607F2 /* ProductTableFooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C208A61C3C22A600F607F2 /* ProductTableFooterViewController.swift */; };
+		99C208A91C3C22A600F607F2 /* ProductTableFooterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C208A71C3C22A600F607F2 /* ProductTableFooterViewController.xib */; };
 		99C9591C1C22B566001A5220 /* DrawerVC_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C9591B1C22B566001A5220 /* DrawerVC_Main.swift */; };
 		99CA10501C311DB000DAB697 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA104F1C311DB000DAB697 /* CategoryCell.swift */; };
 		99CA10531C31215300DAB697 /* FeaturedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA10511C31215300DAB697 /* FeaturedCell.swift */; };
@@ -123,6 +125,8 @@
 		99A5F9591BD7D9540082676F /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		99A5F95F1BD7DD6A0082676F /* ProductVC_Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductVC_Style.swift; sourceTree = "<group>"; };
 		99A5F9631BD7FBCF0082676F /* ProductVC_TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductVC_TableView.swift; sourceTree = "<group>"; };
+		99C208A61C3C22A600F607F2 /* ProductTableFooterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableFooterViewController.swift; sourceTree = "<group>"; };
+		99C208A71C3C22A600F607F2 /* ProductTableFooterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableFooterViewController.xib; sourceTree = "<group>"; };
 		99C9591B1C22B566001A5220 /* DrawerVC_Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerVC_Main.swift; sourceTree = "<group>"; };
 		99C9591D1C22B6F7001A5220 /* AreaHP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AreaHP-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		99CA104F1C311DB000DAB697 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 				99FBA6941BDB03C9000CB144 /* ReloadView.swift */,
 				9987EC601C2FE55E00BD2244 /* TableFooterViewController.swift */,
 				9987EC611C2FE55E00BD2244 /* TableFooterViewController.xib */,
+				99C208A61C3C22A600F607F2 /* ProductTableFooterViewController.swift */,
+				99C208A71C3C22A600F607F2 /* ProductTableFooterViewController.xib */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -455,7 +461,7 @@
 					};
 					9992E7AB1BD5226A004A2EA2 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = TRU3C74ZGR;
+						DevelopmentTeam = YXYNTPGG55;
 					};
 				};
 			};
@@ -502,6 +508,7 @@
 				99CA10641C31407F00DAB697 /* ProductListCell.xib in Resources */,
 				9992E7BD1BD5226B004A2EA2 /* LaunchScreen.storyboard in Resources */,
 				9992E7BA1BD5226B004A2EA2 /* Assets.xcassets in Resources */,
+				99C208A91C3C22A600F607F2 /* ProductTableFooterViewController.xib in Resources */,
 				9992E7B51BD5226B004A2EA2 /* Main.storyboard in Resources */,
 				99CA10541C31215300DAB697 /* FeaturedCell.xib in Resources */,
 			);
@@ -601,6 +608,7 @@
 				9992E7F41BD5E76C004A2EA2 /* CategoryVC_SearchBar.swift in Sources */,
 				99CA105A1C312C8F00DAB697 /* FeaturedVC_CollectionView.swift in Sources */,
 				99CA105E1C312ED000DAB697 /* FeaturedVC_Style.swift in Sources */,
+				99C208A81C3C22A600F607F2 /* ProductTableFooterViewController.swift in Sources */,
 				99FCE9151C329125001BE156 /* CategoryVC_SideDrawer+SVProgressHUD.swift in Sources */,
 				99FBA6A21BDC3B3A000CB144 /* FavoriteVC_RetrieveProducts.swift in Sources */,
 				9987EC5F1C2FD9A400BD2244 /* CategoryList.swift in Sources */,
@@ -754,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -792,7 +800,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -806,9 +814,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = AreaHP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.protogres.AreaHP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Protogress.AreaHP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "AreaHP-Bridging-Header.h";
@@ -823,9 +833,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = AreaHP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.protogres.AreaHP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Protogress.AreaHP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "AreaHP-Bridging-Header.h";

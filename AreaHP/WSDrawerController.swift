@@ -22,6 +22,7 @@ class WSDrawerController: MMDrawerController {
     override func closeDrawerAnimated(animated: Bool, velocity: CGFloat, animationOptions options: UIViewAnimationOptions, completion: ((Bool) -> Void)!) {
         super.closeDrawerAnimated(animated, velocity: velocity, animationOptions: options, completion: completion)
         
+    NSNotificationCenter.defaultCenter().postNotificationName("ResignFirstResponder", object: self, userInfo: nil)
         removeShadowFromCenterView()
     }
     

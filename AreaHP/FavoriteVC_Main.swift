@@ -26,9 +26,6 @@ class FavoriteViewController: UIViewController {
     // Used to requery the data inside CDFavorite Core Data
     var viewControllerDidLoad = false
     
-    // Used to add the search bar into the table view header
-    var searchController: UISearchController?
-    
     // Once token
     var token: dispatch_once_t = 0
     

@@ -27,10 +27,6 @@ extension FeaturedViewController {
             categoryId = nil
             initJSONRequest(GLOBAL_VALUES.FETCH.FEATURED.URL())
         }
-        
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            SVProgressHUD.dismiss()
-        }
     }
     
     func willSendNotificationFromCenter() {
@@ -38,5 +34,9 @@ extension FeaturedViewController {
         let userInfo = ["id": id]
         SVProgressHUD.show()
         NSNotificationCenter.defaultCenter().postNotificationName("NavigateCategoryIdEvent", object: self, userInfo: userInfo)
+    }
+    
+    func dismissProgressHUD() {
+        SVProgressHUD.dismiss()
     }
 }

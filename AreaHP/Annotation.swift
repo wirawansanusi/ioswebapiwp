@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Contacts
+import AddressBook
 
 class Annotation: NSObject, MKAnnotation {
     let title: String?
@@ -30,8 +31,16 @@ class Annotation: NSObject, MKAnnotation {
     }
     
     func mapItem() -> MKMapItem {
-        let addressDictionary = [String(CNPostalAddressStreetKey): subtitle!]
-        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        
+        var addressDict: [String: String]?
+        if #available(iOS 9.0, *) {
+            addressDict = [CNPostalAddressStreetKey: subtitle!]
+        } else {
+            // Fallback on earlier versions
+            addressDict = [String(kABPersonAddressStreetKey): subtitle!]
+        }
+        
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
         
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title

@@ -46,7 +46,6 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
         let category = currentCategories[indexPath.row]
         cell.title.text = category.title
         cell.totalProducts.text = "\(category.totalProduct)"
-        cellHeight = cell.bounds.height
         
         return cell
     }
@@ -75,8 +74,10 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if parentId != 0 {
-            tableFooterViewController = TableFooterViewController()
+            
+            tableFooterViewController = TableFooterViewController(nibName: "TableFooterViewController", bundle: nil)
             tableFooterViewController?.delegate = self
+            
             return tableFooterViewController?.view
         }
         
@@ -94,7 +95,7 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource, Ta
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if parentId != 0 {
-            return cellHeight
+            return 44.0
         }
         return 0
     }

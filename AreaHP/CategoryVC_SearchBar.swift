@@ -12,6 +12,7 @@ extension CategoryViewController: UISearchBarDelegate {
     
     func initSearchBar() {
         searchBar.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didCloseSideDrawer:"), name: "ResignFirstResponder", object: nil)
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
@@ -23,8 +24,13 @@ extension CategoryViewController: UISearchBarDelegate {
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
     }
+    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -36,5 +42,11 @@ extension CategoryViewController: UISearchBarDelegate {
     
     func dismissSearchBar() {
         searchBar.resignFirstResponder()
+    }
+    
+    func didCloseSideDrawer(notification: NSNotification) {
+        if notification.name == "ResignFirstResponder" {
+            dismissSearchBar()
+        }
     }
 }

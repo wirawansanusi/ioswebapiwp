@@ -8,17 +8,17 @@
 
 import UIKit
 
-extension ProductViewController: UITableViewDelegate, UITableViewDataSource, ProductCellDelegate {
+extension ProductViewController: UITableViewDelegate, UITableViewDataSource, ProductTableFooterViewDelegate {
     
     func initTableView() {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         self.styleTableView()
         
         // Uses for dynamic sizing cell's size
-        self.tableView.estimatedRowHeight = 150.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -49,30 +49,49 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource, Pro
         }
         cell.weightLabel.text = self.product.weight!
         cell.warrantyLabel.text = self.product.warranty!
-        var additional = ""
-        if self.product.additional.count > 0 {
-            for index in 0..<self.product.additional.count {
-                if index == 0 {
-                    additional += String(format: "\(self.product.additional[index])")
-                } else {
-                    additional += String(format: "\n\(self.product.additional[index])")
-                }
-            }
-        }
-        cell.additionalLabel.text = additional
+        cell.additionalLabel.text = self.product.additional!
+        cell.additionalLabel.sizeToFit()
         cell.priceLabel.text = product.price
         
+        /*
         // Used for Core Data querying
         cell.id = self.product.id
         cell.thumbnailURL = self.product.thumbnailURL
         cell.coreDataDelegate = self
         cell.checkFavorite()
+        */
         
         return cell
     }
     
+    /*
     func productCellHasFinishedPerformingCoreData(controller: ProductCell) {
         
         self.tableView.reloadData()
+    }
+    */
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Auto deselecting after table view cell was tapped
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        return 50.0
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        productTableFooterViewController = ProductTableFooterViewController(nibName: "ProductTableFooterViewController", bundle: nil, product: self.product)
+        productTableFooterViewController?.coreDataDelegate = self
+        
+        return productTableFooterViewController?.view
+    }
+    
+    func productCellHasFinishedPerformingCoreData(controller: ProductTableFooterViewController) {
+        
+        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.None)
     }
 }

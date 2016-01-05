@@ -28,12 +28,14 @@ extension FeaturedViewController: JSONRequestDataTaskDelegate {
         self.collectionViewShouldAnimate = true
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.reloadView.hideReloadView()
+            self.dismissProgressHUD()
         })
         self.refreshCollectionView()
         self.collectionView.setContentOffset(CGPointZero, animated:true)
     }
     
     func JSONRequestDataTaskOnFailed(request: JSONRequest, errorMessage: String) {
+        self.dismissProgressHUD()
         self.reloadView.showReloadView(errorMessage)
     }
     
@@ -73,7 +75,7 @@ extension FeaturedViewController: JSONRequestDataTaskDelegate {
         
         var weight = "-"
         var warranty = "-"
-        var additional = [String]()
+        var additional = ""
         
         if let weightsData = productData["taxonomy_berat"] as? [[String: AnyObject]] {
             for weightData in weightsData {
@@ -85,13 +87,25 @@ extension FeaturedViewController: JSONRequestDataTaskDelegate {
                 warranty = warrantyData["title"] as! String
             }
         }
+    
         if let additionalsData = productData["taxonomy_paket-pengiriman"] as? [[String: AnyObject]] {
+            /*
             for additionalData in additionalsData {
                 additional.append((additionalData["title"] as? String)!)
             }
-        }
-        if additional.count == 0 {
-            additional.append("-")
+            */
+            if additionalsData.count > 0 {
+                for index in 0..<additionalsData.count {
+                    let additionalData = additionalsData[index]["title"] as! String
+                    if index == 0 {
+                        additional += String(format: "\(additionalData)")
+                    } else {
+                        additional += String(format: "\n\(additionalData)")
+                    }
+                }
+            } else {
+                additional = "-"
+            }
         }
         
         product.detail(weight, warranty: warranty, additional: additional)

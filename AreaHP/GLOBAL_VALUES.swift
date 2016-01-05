@@ -66,7 +66,7 @@ struct GLOBAL_VALUES {
         struct DIRECTION {
             
             static let URL = NSURL(string: "whatsapp://send?abid=+6285780070729")!
-            static let TITLE = "Tunjukkan arah dari posisi sekarang"
+            static let TITLE = "Mangga Dua Mall Lt.3 no.12B, Jl. Mangga Dua Raya, Jakarta Pusat"
             static let IMAGE = UIImage(named: "Direction")!
             
             struct ALERT {

@@ -13,6 +13,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var product: Products!
+    var productTableFooterViewController: ProductTableFooterViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
